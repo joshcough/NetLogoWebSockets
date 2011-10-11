@@ -45,16 +45,9 @@ public class WebSockServer extends Server {
     };
 
     setHandler(_wsHandler);
-
-    // _rHandler=new ResourceHandler();
-    // _rHandler.setDirectoriesListed(true);
-//        _rHandler.setResourceBase("src/test/webapp");   //doesn't exist -- change if i need resources
-    // _wsHandler.setHandler(_rHandler);
-
     _wsHandler.setHandler(new HelloWorld());
 
   }
-
 
   class MyWebSocket implements WebSocket, WebSocket.OnFrame, WebSocket.OnBinaryMessage, WebSocket.OnTextMessage, WebSocket.OnControl {
     protected FrameConnection _connection;
@@ -96,8 +89,6 @@ public class WebSockServer extends Server {
         System.err.printf("%s#onMessage     %s\n", this.getClass().getSimpleName(), data);
       System.err.println("GOT MESSAGE!! IT IS ---");
       System.err.println(data);
-
-
     }
 
     public void onMessage(byte[] data, int offset, int length) {
@@ -105,6 +96,4 @@ public class WebSockServer extends Server {
         System.err.printf("%s#onMessage     %s\n", this.getClass().getSimpleName(), TypeUtil.toHexString(data, offset, length));
     }
   }
-
-
 }

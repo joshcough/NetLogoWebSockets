@@ -23,7 +23,6 @@ public class InitCommand extends DefaultCommand {
     }
   }
 
-
   public class CommandThread extends Thread {
     @Override
     public void run() {

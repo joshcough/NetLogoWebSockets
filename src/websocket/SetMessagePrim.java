@@ -9,7 +9,6 @@ import org.nlogo.api.Syntax;
 
 public class SetMessagePrim extends DefaultCommand {
 
-
   @Override
   public void perform(Argument[] arg0, org.nlogo.api.Context arg1)
       throws ExtensionException, LogoException {
@@ -23,7 +22,6 @@ public class SetMessagePrim extends DefaultCommand {
     }
     HelloWorld.setMessage(blah);
   }
-
 
   public Syntax getSyntax() {
     return Syntax.commandSyntax(new int[]{Syntax.StringType()});

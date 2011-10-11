@@ -15,11 +15,7 @@ public class HelloWorld extends AbstractHandler {
   public static String toSend = socketPage; //"<h1>Hello There, World: What's up?</h1>";
 
   public static void setMessage(String msg) {
-    if (msg == null) {
-      toSend = socketPage;
-    } else {
-      toSend = msg;
-    }
+    toSend = msg == null? socketPage : msg;
   }
 
   public void handle(String target,
@@ -33,17 +29,10 @@ public class HelloWorld extends AbstractHandler {
     response.getWriter().println(toSend);
   }
 
-
   public static void main(String[] args) throws Exception {
-
     Server server = new Server(8080);
-
-
     server.setHandler(new HelloWorld());
-
     server.start();
     server.join();
   }
-
-
 }
